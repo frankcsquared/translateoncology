@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   const location = useLocation();
 
-  const handleTranslateClick = () => {
-    const combo = document.querySelector<HTMLSelectElement>(
-      "#google_translate_element select.goog-te-combo"
-    );
+  const handleLanguageChange = (event: any) => {
+    const lang = event.target.value;
+    if (!lang) return;
 
-    if (combo) {
-      combo.focus();
-      combo.click();
-    }
+    const pageUrl = window.location.href;
+    const translateUrl = `https://translate.google.com/translate?sl=en&tl=${lang}&u=${encodeURIComponent(pageUrl)}`;
+
+    window.open(translateUrl, "_blank");
+    event.target.value = "";
   };
   const navLinks = [
     { to: "/", label: "About" },
@@ -38,12 +38,24 @@ const Header = () => {
           </Link>
           
           <div className="flex items-center gap-4">
-            <div
-              className="hidden sm:flex items-center gap-2 relative z-50 cursor-pointer rounded-md border border-border bg-background px-3 py-1 text-xs font-medium shadow-sm"
-              onClick={handleTranslateClick}
-            >
+            <div className="hidden sm:flex items-center gap-2 relative z-50">
               <Globe className="h-4 w-4 text-primary" />
-              <div id="google_translate_element" className="relative z-50"></div>
+              <select
+                defaultValue=""
+                onChange={handleLanguageChange}
+                className="text-xs font-medium border border-border rounded-md px-2 py-1 bg-background shadow-sm cursor-pointer"
+              >
+                <option value="" disabled>
+                  Translate
+                </option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="zh-CN">中文 (简体)</option>
+                <option value="ar">العربية</option>
+                <option value="hi">हिन्दी</option>
+                <option value="pt">Português</option>
+                <option value="ru">Русский</option>
+              </select>
             </div>
             
             <nav className="hidden md:flex items-center gap-1">
