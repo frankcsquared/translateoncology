@@ -15,7 +15,19 @@ const TypesOfCancer = () => {
         { lang: "中文", flag: "🇨🇳", pdf: "/pdfs/breast-cancer-zh.pdf" },
       ]
     },
-    { name: "Lung Cancer", description: "Cancer that begins in the lungs, often associated with smoking but can occur in non-smokers." },
+    { 
+      name: "Lung Cancer", 
+      description: "Cancer that begins in the lungs, often associated with smoking but can occur in non-smokers.",
+      resources: [
+        { lang: "English", flag: "🇺🇸", pdf: "/pdfs/lung-cancer-en.pdf" },
+        { lang: "Français", flag: "🇫🇷", pdf: "/pdfs/lung-cancer-fr.pdf" },
+        { lang: "中文", flag: "🇨🇳", pdf: "/pdfs/lung-cancer-zh.pdf" },
+        { lang: "العربية", flag: "🇸🇦", pdf: "/pdfs/lung-cancer-ar.pdf" },
+        { lang: "हिन्दी", flag: "🇮🇳", pdf: "/pdfs/lung-cancer-hi.pdf" },
+        { lang: "ਪੰਜਾਬੀ", flag: "🇮🇳", pdf: "/pdfs/lung-cancer-pa.pdf" },
+        { lang: "Tagalog", flag: "🇵🇭", pdf: "/pdfs/lung-cancer-tl.pdf" },
+      ]
+    },
     { name: "Colorectal Cancer", description: "Cancer of the colon or rectum, often developing from polyps in the intestinal lining." },
     { name: "Prostate Cancer", description: "Cancer in the prostate gland, one of the most common cancers in men." },
     { name: "Pancreatic Cancer", description: "Aggressive cancer of the pancreas with typically late detection." },
